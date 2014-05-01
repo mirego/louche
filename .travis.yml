@@ -1,0 +1,19 @@
+language: ruby
+
+rvm:
+  - 2.0.0
+  - 1.9.3
+
+gemfile:
+  - gemfiles/Gemfile.activemodel-4.1
+  - gemfiles/Gemfile.activemodel-4.0
+
+script: "echo 'DO IT' && bundle exec rake spec"
+
+notifications:
+  hipchat:
+    rooms:
+      secure: "TF6e2Z/HSTFH2g5j8kILrJvEMyYF6Lx5uFIFp/VbTHc6XzaZ1Ot5DjcZr8aychcObYKNVW01/DTCcJ9Acs1GOVuBVgUZbRWUhvlBVAOAElYLJhOTDveYUiARXIwnmXgOZmZRuBagJqqHKBzoIo8XTO3l68txs1tHZA+sSvNJoWQ="
+    template:
+      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Build</a>/<a href="%{compare_url}">Changes</a>)'
+    format: 'html'
