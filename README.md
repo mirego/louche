@@ -1,4 +1,15 @@
-# Louche
+<p align="center">
+  <a href="https://github.com/mirego/microscope">
+    <img src="http://i.imgur.com/FhNZIjg.png" alt="Louche" />
+  </a>
+  <br />
+  Louche adds common validators for ActiveModel/ActiveRecord classes.
+  <br /><br />
+  <a href="https://rubygems.org/gems/louche"><img src="https://badge.fury.io/rb/louche.png" /></a>
+  <a href="https://travis-ci.org/mirego/louche"><img src="https://travis-ci.org/mirego/louche.png?branch=master" /></a>
+</p>
+
+---
 
 ## Installation
 
