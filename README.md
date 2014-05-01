@@ -1,7 +1,5 @@
 # Louche
 
----
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -14,10 +12,80 @@ gem 'louche'
 
 Louche provides a few validators to use in your ActiveModel/ActiveRecord classes:
 
-* `EmailValidator`
-* `URLValidator`
-* `PhoneNumberValidator`
-* `PostalCodeValidator`
+### `EmailValidator`
+
+```ruby
+class User < ActiveRecord::Base
+  validates :email, email: true
+end
+
+User.new(email: 'foo@example.com').valid? # => true
+User.new(email: 'foo@example').valid? # => false
+```
+
+### `URLValidator`
+
+```ruby
+class User < ActiveRecord::Base
+  validates :website, url: true
+end
+
+User.new(website: 'http://example.com').valid? # => true
+User.new(website: 'example.$$$').valid? # => false
+```
+
+### `PhoneNumberValidator`
+
+```ruby
+class User < ActiveRecord::Base
+  validates :phone_number, phone_number: true
+end
+
+user = User.new(phone_number: '514 555-2525')
+user.valid? # => true
+user.phone_number # => '5145552525'
+
+user = User.new(phone_number: '555-2525')
+user.valid? # => false
+user.phone_number # '5552525'
+```
+
+### `PostalCodeValidator`
+
+```ruby
+class User < ActiveRecord::Base
+  validates :postal_code, postal_code: true
+end
+
+user = User.new(postal_code: 'G0R 2T0')
+user.valid? # => true
+user.postal_code # => 'G0R2T0'
+
+user = User.new(postal_code: 'L -0- L')
+user.valid? # => false
+user.postal_code # => 'L0L'
+```
+
+### `ArrayValidator`
+
+```ruby
+class Tag < Struct.new(:name)
+  def valid?
+    name.present?
+  end
+end
+
+class User < ActiveRecord::Base
+  validates :tags, array: true
+
+  def tags=(tags)
+    super tags.map { |tag| Tag.new(tag) }
+  end
+end
+
+User.new(tags: ['food', 'beer', 'code']).valid? # => true
+User.new(tags: ['food', '', 'code']).valid? # => false
+```
 
 ## License
 
