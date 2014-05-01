@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/mirego/microscope">
-    <img src="http://i.imgur.com/FhNZIjg.png" alt="Louche" />
+  <a href="https://github.com/mirego/louche">
+    <img src="http://i.imgur.com/qCu7dpr.png" alt="Louche" />
   </a>
   <br />
   Louche adds common validators for ActiveModel/ActiveRecord classes.
