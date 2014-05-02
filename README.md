@@ -25,6 +25,8 @@ Louche provides a few validators to use in your ActiveModel/ActiveRecord classes
 
 ### `EmailValidator`
 
+#### Example
+
 ```ruby
 class User < ActiveRecord::Base
   validates :email, email: true
@@ -34,7 +36,16 @@ User.new(email: 'foo@example.com').valid? # => true
 User.new(email: 'foo@example').valid? # => false
 ```
 
+#### Options
+
+| Option     | Description
+|------------|-----------------------------------------------------
+| `:regex`   | The regex used to validate the email (default: `/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i`)
+| `:message` | The ActiveRecord message added to the record errors (default: `:invalid_email`)
+
 ### `URLValidator`
+
+#### Example
 
 ```ruby
 class User < ActiveRecord::Base
@@ -45,7 +56,16 @@ User.new(website: 'http://example.com').valid? # => true
 User.new(website: 'example.$$$').valid? # => false
 ```
 
+#### Options
+
+| Option     | Description
+|------------|-----------------------------------------------------
+| `:schemes` | The URI schemes to allow (default: `%w(http https)`)
+| `:message` | The ActiveRecord message added to the record errors (default: `:invalid_url`)
+
 ### `PhoneNumberValidator`
+
+#### Example
 
 ```ruby
 class User < ActiveRecord::Base
@@ -61,7 +81,17 @@ user.valid? # => false
 user.phone_number # '5552525'
 ```
 
+#### Options
+
+| Option           | Description
+|------------------|-----------------------------------------------------
+| `:regex`         | The regex used to validate the number (default: `/\d{10,}/`)
+| `:cleanup_regex` | The regex used to validate clean the input before validating/saving it (default: `/[^\d]/`)
+| `:message`       | The ActiveRecord message added to the record errors (default: `:invalid_phone_number`)
+
 ### `PostalCodeValidator`
+
+#### Example
 
 ```ruby
 class User < ActiveRecord::Base
@@ -77,7 +107,17 @@ user.valid? # => false
 user.postal_code # => 'L0L'
 ```
 
+#### Options
+
+| Option           | Description
+|------------------|-----------------------------------------------------
+| `:regex`         | The regex used to validate the code (default: `/^[a-z]\d[a-z]\d[a-z]\d$/i`)
+| `:cleanup_regex` | The regex used to validate clean the input before validating/saving it (default: `/[^a-z0-9]/i`)
+| `:message`       | The ActiveRecord message added to the record errors (default: `:invalid_postal_code`)
+
 ### `ArrayValidator`
+
+#### Example
 
 ```ruby
 class Tag < Struct.new(:name)
@@ -97,6 +137,12 @@ end
 User.new(tags: ['food', 'beer', 'code']).valid? # => true
 User.new(tags: ['food', '', 'code']).valid? # => false
 ```
+
+#### Options
+
+| Option     | Description
+|------------|-----------------------------------------------------
+| `:message` | The ActiveRecord message added to the record errors (default: `:invalid_array`)
 
 ## Localized error messages
 
