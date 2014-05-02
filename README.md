@@ -140,9 +140,10 @@ User.new(tags: ['food', '', 'code']).valid? # => false
 
 #### Options
 
-| Option     | Description
-|------------|-----------------------------------------------------
-| `:message` | The ActiveRecord message added to the record errors (default: `:invalid_array`)
+| Option             | Description
+|--------------------|-----------------------------------------------------
+| `:message`         | The ActiveRecord message added to the record errors (default: `:invalid_array`)
+| `:validity_method` | The method that will be sent to each array item (default: `:valid?`)
 
 ## Localized error messages
 
