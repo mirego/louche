@@ -98,6 +98,22 @@ User.new(tags: ['food', 'beer', 'code']).valid? # => true
 User.new(tags: ['food', '', 'code']).valid? # => false
 ```
 
+## Localized error messages
+
+Louche uses standard ActiveRecord messages. Here’s what your
+`config/locales/activerecord.en.yml` file could look like:
+
+```yaml
+en:
+  errors:
+    messages:
+      invalid_email: is not a valid email address
+      invalid_url: is not a valid URL
+      invalid_phone_number: is not a valid phone number
+      invalid_postal_code: is not a valid postal code
+      invalid_array: contains invalid items
+```
+
 ## License
 
 `Louche` is © 2014 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).  See the [`LICENSE.md`](https://github.com/mirego/louche/blob/master/LICENSE.md) file.
