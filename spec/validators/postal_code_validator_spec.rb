@@ -53,6 +53,13 @@ describe PostalCodeValidator do
 
         it_behaves_like 'a successful validator'
       end
+
+      context 'with trailing characters' do
+        let(:value) { '  G0R2T0  ' }
+        let(:expected_stored_value) { 'G0R2T0' }
+
+        it_behaves_like 'a successful validator'
+      end
     end
   end
 end

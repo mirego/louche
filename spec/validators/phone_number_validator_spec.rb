@@ -51,6 +51,12 @@ describe PhoneNumberValidator do
 
         it_behaves_like 'a successful validator'
       end
+
+      context 'containing trailing characters' do
+        let(:value) { '  514 555-2525  ' }
+        let(:expected_stored_value) { '5145552525' }
+        it_behaves_like 'a successful validator'
+      end
     end
   end
 end
