@@ -27,7 +27,7 @@ describe ArrayValidator do
       let(:invalid_item) { double('ArrayItem', valid?: false) }
 
       context 'with an invalid value' do
-        context 'with non-Array valud' do
+        context 'with non-Array value' do
           let(:value) { valid_item }
           it_behaves_like 'an erroneous validator'
         end
@@ -55,7 +55,7 @@ describe ArrayValidator do
       let(:invalid_item) { double('ArrayItem', really_valid?: false) }
 
       context 'with an invalid value' do
-        context 'with non-Array valud' do
+        context 'with non-Array value' do
           let(:value) { valid_item }
           it_behaves_like 'an erroneous validator'
         end
