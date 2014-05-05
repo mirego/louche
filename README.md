@@ -85,7 +85,7 @@ user.phone_number # '5552525'
 
 | Option           | Description
 |------------------|-----------------------------------------------------
-| `:regex`         | The regex used to validate the number (default: `/\d{10,}/`)
+| `:regex`         | The regex used to validate the number (default: `/\A\d{10,}\z/`)
 | `:cleanup_regex` | The regex used to validate clean the input before validating/saving it (default: `/[^\d]/`)
 | `:message`       | The ActiveRecord message added to the record errors (default: `:invalid_phone_number`)
 
@@ -111,7 +111,7 @@ user.postal_code # => 'L0L'
 
 | Option           | Description
 |------------------|-----------------------------------------------------
-| `:regex`         | The regex used to validate the code (default: `/^[a-z]\d[a-z]\d[a-z]\d$/i`)
+| `:regex`         | The regex used to validate the code (default: `/\A[a-z]\d[a-z]\d[a-z]\d\z/i`)
 | `:cleanup_regex` | The regex used to validate clean the input before validating/saving it (default: `/[^a-z0-9]/i`)
 | `:message`       | The ActiveRecord message added to the record errors (default: `:invalid_postal_code`)
 

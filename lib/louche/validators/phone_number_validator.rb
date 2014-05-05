@@ -1,7 +1,7 @@
 class PhoneNumberValidator < ActiveModel::EachValidator
   def initialize(options)
     options.reverse_merge!(message: :invalid_phone_number)
-    options.reverse_merge!(regex: /\d{10,}/)
+    options.reverse_merge!(regex: /\A\d{10,}\z/)
     options.reverse_merge!(cleanup_regex: /[^\d]/)
     super
   end
