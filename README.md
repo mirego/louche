@@ -21,7 +21,24 @@ gem 'louche'
 
 ## Usage
 
-Louche provides a few validators to use in your ActiveModel/ActiveRecord classes:
+Louche provides a few validators to use in your ActiveModel/ActiveRecord classes. You can use all validators with a lowercase
+symbolized version of their prefix as the key and `true` as the value. For example, for `EmailValidator`:
+
+```ruby
+class User < ActiveRecord::Base
+  validates :email, email: true
+end
+```
+
+Optionally, if you wish to customize the default options, you can pass a hash as the value:
+
+```ruby
+class User < ActiveRecord::Base
+  validates :email, email: { regex: /^.*@.*$/, message: :blank }
+end
+```
+
+Here are the validators that Louche provides along with their respective options:
 
 ### `EmailValidator`
 
