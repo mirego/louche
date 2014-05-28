@@ -1,7 +1,7 @@
-$:.unshift File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
 require 'rspec'
 require 'louche'
 
-RSpec.configure do |config|
+RSpec.configure do
 end
