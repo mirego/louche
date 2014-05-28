@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe PhoneNumberValidator do
+  let(:described_class) { PhoneNumberValidator }
+
   describe :validate_each do
     let(:validator) { described_class.new(options) }
     let(:options) { { attributes: [attribute] } }

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe EmailValidator do
+  let(:described_class) { EmailValidator }
+
   describe :validate_each do
     let(:validator) { described_class.new(options) }
     let(:options) { { attributes: [attribute] } }

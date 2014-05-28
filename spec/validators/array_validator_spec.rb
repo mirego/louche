@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe ArrayValidator do
+  let(:described_class) { ArrayValidator }
+
   describe :validate_each do
     let(:validator) { described_class.new(options) }
     let(:options) { { attributes: [attribute], validity_method: validity_method } }

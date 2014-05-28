@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe URLValidator do
+  let(:described_class) { URLValidator }
+
   describe :validate_each do
     let(:validator) { described_class.new(options) }
     let(:options) { { attributes: [attribute] } }
