@@ -5,8 +5,8 @@
   <br />
   Louche adds common validators for ActiveModel/ActiveRecord classes.
   <br /><br />
-  <a href="https://rubygems.org/gems/louche"><img src="https://badge.fury.io/rb/louche.png" /></a>
-  <a href="https://travis-ci.org/mirego/louche"><img src="https://travis-ci.org/mirego/louche.png?branch=master" /></a>
+  <a href="https://rubygems.org/gems/louche"><img src="http://img.shields.io/gem/v/louche.svg" /></a>
+  <a href="https://travis-ci.org/mirego/louche"><img src="http://img.shields.io/travis/mirego/louche.svg" /></a>
 </p>
 
 ---
