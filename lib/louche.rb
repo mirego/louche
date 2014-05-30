@@ -3,6 +3,8 @@ require 'louche/version'
 require 'active_model'
 require 'active_support/core_ext/hash'
 
+require 'louche/internal_validators/regex_validator'
+
 require 'louche/validators/array_validator'
 require 'louche/validators/email_validator'
 require 'louche/validators/phone_number_validator'
