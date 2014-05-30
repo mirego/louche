@@ -7,6 +7,7 @@
   <br /><br />
   <a href="https://rubygems.org/gems/louche"><img src="http://img.shields.io/gem/v/louche.svg" /></a>
   <a href="https://travis-ci.org/mirego/louche"><img src="http://img.shields.io/travis/mirego/louche.svg" /></a>
+  <a href="https://codeclimate.com/github/mirego/louche"><img src="http://img.shields.io/codeclimate/github/mirego/louche.svg" /></a>
 </p>
 
 ---
