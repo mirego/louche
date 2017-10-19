@@ -26,7 +26,7 @@ Louche provides a few validators to use in your ActiveModel/ActiveRecord classes
 symbolized version of their prefix as the key and `true` as the value. For example, for `EmailValidator`:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :email, email: true
 end
 ```
@@ -34,7 +34,7 @@ end
 Optionally, if you wish to customize the default options, you can pass a hash as the value:
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :email, email: { regex: /^.*@.*$/, message: :blank }
 end
 ```
@@ -46,7 +46,7 @@ Here are the validators that Louche provides along with their respective options
 #### Example
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :email, email: true
 end
 
@@ -66,7 +66,7 @@ User.new(email: 'foo@example').valid? # => false
 #### Example
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :website, url: true
 end
 
@@ -86,7 +86,7 @@ User.new(website: 'example.$$$').valid? # => false
 #### Example
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :phone_number, phone_number: true
 end
 
@@ -112,7 +112,7 @@ user.phone_number # '5552525'
 #### Example
 
 ```ruby
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :postal_code, postal_code: true
 end
 
@@ -144,7 +144,7 @@ class Tag < Struct.new(:name)
   end
 end
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :tags, array: true
 
   def tags=(tags)
@@ -163,6 +163,32 @@ User.new(tags: ['food', '', 'code']).valid? # => false
 | `:message`         | The ActiveRecord message added to the record errors (default: `:invalid_array`)
 | `:validity_method` | The method that will be sent to each array item (default: `:valid?`)
 
+### `RgbHexValidator`
+
+#### Example
+
+```ruby
+class Flag < ApplicationRecord
+  validates :color, rgb_hex: true
+end
+
+flag = Flag.new(color: '#ff0000')
+flag.valid? # => true
+flag.color # => '#ff0000'
+
+flag = Flag.new(color: '#zzzzzz')
+flag.valid? # => false
+flag.color # => '#'
+```
+
+#### Options
+
+| Option           | Description
+|------------------|-----------------------------------------------------
+| `:regex`         | The regex used to validate the code (default: `/\A#([a-f0-9]{6}|[a-f0-9]{3})\z/i`)
+| `:cleanup_regex` | The regex used to validate clean the input before validating/saving it (default: `/[^#a-f0-9]/i`)
+| `:message`       | The ActiveRecord message added to the record errors (default: `:invalid_rgb_hex`)
+
 ## Localized error messages
 
 Louche uses standard ActiveRecord messages. Here’s what your
@@ -177,6 +203,7 @@ en:
       invalid_phone_number: is not a valid phone number
       invalid_postal_code: is not a valid postal code
       invalid_array: contains invalid items
+      invalid_rgb_hex: is not a valid color
 ```
 
 ## License
